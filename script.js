@@ -1,0 +1,10 @@
+const header=document.querySelector('[data-header]'),menu=document.querySelector('[data-menu]'),nav=document.querySelector('[data-nav]');
+document.querySelector('[data-year]').textContent=new Date().getFullYear();
+addEventListener('scroll',()=>header.classList.toggle('scrolled',scrollY>24),{passive:true});
+menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')==='true';menu.setAttribute('aria-expanded',String(!open));menu.querySelector('span').textContent=open?'+':'−';nav.classList.toggle('open',!open)});
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.setAttribute('aria-expanded','false');menu.querySelector('span').textContent='+';nav.classList.remove('open')}));
+const filterButtons=document.querySelectorAll('[data-filter]'),cards=document.querySelectorAll('[data-category]');
+filterButtons.forEach(button=>button.addEventListener('click',()=>{filterButtons.forEach(b=>b.classList.remove('active'));button.classList.add('active');const filter=button.dataset.filter;cards.forEach(card=>card.classList.toggle('hidden',filter!=='all'&&!card.dataset.category.split(' ').includes(filter)))}));
+document.querySelectorAll('.card video').forEach(video=>{const card=video.closest('.card');card.addEventListener('mouseenter',()=>video.play().catch(()=>{}));card.addEventListener('mouseleave',()=>{video.pause();video.currentTime=0})});
+document.querySelectorAll('.work-card video').forEach(video=>{const card=video.closest('.work-card');card.addEventListener('mouseenter',()=>video.play().catch(()=>{}));card.addEventListener('mouseleave',()=>{video.pause();video.currentTime=0})});
+document.querySelectorAll('[data-work-filter]').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('[data-work-filter]').forEach(b=>b.classList.remove('active'));button.classList.add('active');const filter=button.dataset.workFilter;document.querySelectorAll('[data-work-category]').forEach(card=>card.hidden=filter!=='all'&&!card.dataset.workCategory.split(' ').includes(filter))}));
