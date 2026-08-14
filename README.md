@@ -1,35 +1,42 @@
-# DePolo Creations — static portfolio V3
+# DePolo Creations V4
 
-A two-page, responsive studio portfolio built from the local DePolo Creations project archive. It includes a homepage, a complete work index, linked published projects, and lightweight motion previews. No build tools, CMS, or paid hosting required.
+A static, GitHub Pages-compatible portfolio. V4 is shorter, company-forward, motion-rich, and organized around physical and digital multidisciplinary work.
 
-## Launch checklist
+## Included
 
-1. Open `index.html` locally to preview it.
-2. Review project titles and descriptions for factual accuracy.
-3. The inquiry CTA is already connected to `GinoDePoloCreations@gmail.com`.
-4. The structured inquiry form is connected to Formspree form `maewokoj`. Confirm the form in the Formspree dashboard and submit one live test after deployment.
-5. Confirm every capability accurately describes work DePolo Creations can deliver.
+- index.html: concise homepage and Formspree inquiry
+- work.html: filterable physical archive plus digital and contract work
+- thank-you.html: inquiry completion page for conversion measurement
+- styles.css: complete V4 design system and responsive layout
+- script.js: menu, filters, hover films, reveals, and validation
+- assets/favicon.svg: browser tab icon using the existing DC mark
+- assets: existing project images and compressed preview films
 
-## Publish free with GitHub Pages
+## Preview
 
-1. Create a new public GitHub repository (for example, `depolo-creations`).
-2. Upload everything inside this folder to the repository root. `index.html` must be at the root.
-3. In the GitHub repository, open **Settings → Pages**.
-4. Under **Build and deployment**, choose **Deploy from a branch**.
-5. Select the `main` branch and `/ (root)`, then click **Save**.
-6. GitHub will show the public URL after deployment, usually within a few minutes.
+Open index.html directly, or run python -m http.server 8080 from this folder and visit http://localhost:8080.
 
-## Connect a custom domain
+## Publish with GitHub Pages
 
-In **Settings → Pages**, enter the domain under **Custom domain**. Then update DNS at the domain registrar using the exact records GitHub shows. Enable **Enforce HTTPS** once it becomes available.
+Copy this folder's contents to the root of the existing GinoDepoloCreations/depolo-creations repository. Keep CNAME at the repository root. GitHub Pages redeploys after the commit reaches main.
 
-## Editing
+## Formspree
 
-- Copy and project order: `index.html`
-- Core colors, type, and layout: `styles.css`
-- V3 typography, archive, and form refinements: `refinements.css`
-- Menu, archive filtering, hover previews, and form guard: `script.js`
-- Full project library: `work.html`
-- Images, logo, and hero video: `assets/`
+The inquiry posts to https://formspree.io/f/maewokoj and requests a redirect to https://depolocreations.com/thank-you.html. Submit one live test after deployment and confirm Formspree accepts the _next redirect.
 
-The Google fonts are loaded remotely. To make the site fully self-contained, download licensed font files into `assets/fonts/` and update the CSS with local `@font-face` rules.
+Budget choices now begin under $500 and progress through $10,000+.
+
+## Cloudflare Web Analytics
+
+Cloudflare requires the site-specific Web Analytics beacon token from the Cloudflare dashboard.
+
+1. Open Cloudflare, then Web Analytics.
+2. Add or select depolocreations.com.
+3. Copy the JavaScript beacon Cloudflare provides.
+4. Paste it immediately before the closing body tag in index.html, work.html, and thank-you.html.
+
+Do not use an invented token. Once enabled, page traffic plus visits to thank-you.html provide a lightweight inquiry-conversion count without Google Analytics or cookies.
+
+## Digital portfolio migration
+
+V4 presently links digital and contract cards to their original GinoDePolo.com project pages. This keeps the work visible immediately while original images, GIFs, and video files are archived. Local media can replace those links incrementally without another layout rewrite.
